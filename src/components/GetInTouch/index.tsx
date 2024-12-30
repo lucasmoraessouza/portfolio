@@ -1,7 +1,7 @@
 export function GetInTouch() {
   return (
     <div className="flex flex-col justify-center items-center w-full max-w-2xl">
-      <span className="font-poppins antialiased font-extrabold text-2xl tracking-tighter">
+      <span className="font-poppins antialiased font-extrabold text-4xl tracking-tighter">
         Get in touch
       </span>
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FC3F7] to-[#FFFFFF] antialiased font-poppins font-semibold text-base">

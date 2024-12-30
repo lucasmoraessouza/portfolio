@@ -3,7 +3,6 @@ import { Card } from "../Card";
 export function WhatIDo() {
   return (
     <div className="flex flex-col justify-center items-center text-white py-12">
-      {/* Título */}
       <span className="font-poppins antialiased font-extrabold text-4xl tracking-tighter">
         What I Do
       </span>

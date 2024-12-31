@@ -17,8 +17,15 @@ export function Footer() {
       <div className="h-[1px] w-full bg-[#484E53]" />
       <div className="w-full flex flex-col justify-center items-center gap-4 p-8 md:flex-row-reverse md:justify-between">
         <div className="flex flex-row gap-5 items-center">
-          <InstagramIcon />
-          <LinkedinIcon />
+          <a href="https://www.instagram.com/moraesluc4s" target="_blank">
+            <InstagramIcon />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lucasdemoraessouza/"
+            target="_blank"
+          >
+            <LinkedinIcon />
+          </a>
         </div>
         <span className="text-[#C9C9C9] text-xs ">
           Lucas de Moraes © 2024 All rights reserved.

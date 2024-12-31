@@ -9,16 +9,17 @@ export function Main() {
         Lucas de Moraes Souza
       </span>
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FC3F7] to-[#FFFFFF] antialiased font-poppins font-semibold text-lg">
-        {"< Fullstack Developer />"}
+        {"< Desenvolvedor Full-stack />"}
       </span>
       <span className="font-poppins antialiased text-md font-medium text-[#E1E1E1] text-center leading-7 mt-2 max-w-3xl ">
-        As a passionate data scientist, with expertise in machine learning, AI,
-        and data analytics, I thrive on the challenges of exploring complex data
-        landscapes and uncovering meaningful patterns that drive innovation
+        Costumo me ver como um solucionador de problemas. Gosto de fazer
+        diferença em qualquer projeto que esteja alocado, sempre pensando fora
+        da caixa. Sou apaixonado por tecnologia e desenvolvimento com foco em
+        proporcionar a melhor experiência para usuários.
       </span>
       <div className="mt-8">
         <a href="#get-in-touch">
-          <Button text="Contact me" />
+          <Button text="Entrar em contato" />
         </a>
       </div>
     </div>

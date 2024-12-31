@@ -11,7 +11,9 @@ export function Header() {
 
   return (
     <div className="relative flex flex-row justify-between items-center p-4 py-2">
-      <span className="font-oleo antialiased text-2xl font-medium">{"< Lucas />"}</span>
+      <span className="font-oleo antialiased text-2xl font-medium">
+        {"< Lucas />"}
+      </span>
       <div className="block md:hidden">
         <HeaderIcon
           height={15}
@@ -21,24 +23,24 @@ export function Header() {
       </div>
       <div className="hidden md:flex gap-20 font-serrat font-medium text-lg text-[#C1C1C1]">
         <a href="#main" className="hover:text-lightPrimary ">
-          Home
+          Início
         </a>
         <a href="#about-me" className="hover:text-lightPrimary">
-          About
+          Sobre
         </a>
         <a href="#what-i-do" className="hover:text-lightPrimary">
-          Services
+          Serviços
         </a>
       </div>
       <div className="hidden md:flex">
-        <Button text="Contact me" square />
+        <Button text="Contato" square />
       </div>
       {menuOpen && (
         <div className="absolute top-full right-0 mt-2 w-48 bg-menu border-[#484E53] border shadow-lg rounded-lg md:hidden">
           <ul className="flex flex-col">
             <li>
               <a href="#main" className="block px-4 py-2 hover:bg-[#2A2A2A]">
-                Main
+                Início
               </a>
             </li>
             <li>
@@ -46,7 +48,7 @@ export function Header() {
                 href="#about-me"
                 className="block px-4 py-2 hover:bg-[#2A2A2A]"
               >
-                About Me
+                Sobre
               </a>
             </li>
             <li>
@@ -54,7 +56,7 @@ export function Header() {
                 href="#what-i-do"
                 className="block px-4 py-2 hover:bg-[#2A2A2A]"
               >
-                What I Do
+               Serviços
               </a>
             </li>
             <li>
@@ -62,12 +64,7 @@ export function Header() {
                 href="#get-in-touch"
                 className="block px-4 py-2 hover:bg-[#2A2A2A]"
               >
-                Get In Touch
-              </a>
-            </li>
-            <li>
-              <a href="#footer" className="block px-4 py-2 hover:bg-[#2A2A2A]">
-                Footer
+                Entre em contato
               </a>
             </li>
           </ul>

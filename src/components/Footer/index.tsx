@@ -28,7 +28,7 @@ export function Footer() {
           </a>
         </div>
         <span className="text-[#C9C9C9] text-xs ">
-          Lucas de Moraes © 2024 All rights reserved.
+          Lucas de Moraes © 2025 All rights reserved.
         </span>
       </div>
     </>

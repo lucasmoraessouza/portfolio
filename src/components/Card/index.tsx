@@ -11,7 +11,7 @@ export function Card({ icon: Icon, title, description, className }: CardProps) {
   return (
     <div
       className={classNames(
-        "w-full p-5 flex flex-col gap-5 border-[1px] border-[#E1E1E1] rounded-[10px] bg-gradient-to-r from-[#2B2B2B] to-[#1C1C1C]",
+        "w-full p-5 flex flex-col gap-5 border-[1px] border-[#E1E1E1] rounded-[10px] bg-gradient-to-r from-[#2B2B2B] to-[#1C1C1C] cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-md hover:shadow-[#E1E1E1]",
         className
       )}
     >

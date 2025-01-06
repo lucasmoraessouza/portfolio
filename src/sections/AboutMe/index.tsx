@@ -1,9 +1,9 @@
-import { Button } from "../Button";
 import resume from "../../assets/files/Lucas de Moraes - Fullstack.pdf";
+import { Button } from "../../components/Button";
 
 export function AboutMe() {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center p-8">
       <span className="font-poppins antialiased font-extrabold text-2xl tracking-tighter">
         Sobre mim
       </span>

@@ -1,9 +1,9 @@
 import Avatar from "../../assets/images/myselfy-image.png";
-import { Button } from "../Button";
+import { Button } from "../../components/Button";
 
 export function Main() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-grid-mobile sm:bg-grid-desk bg-no-repeat bg-center">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-grid-mobile sm:bg-grid-desk bg-no-repeat bg-center p-8">
       <img src={Avatar} className="pt-10 pb-5 max-w-[250px]" />
       <span className="font-poppins antialiased font-extrabold text-[42px] tracking-tighter text-center hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#4FC3F7] hover:to-[#FFFFFF] duration-300">
         Lucas de Moraes Souza

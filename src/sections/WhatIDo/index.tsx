@@ -1,17 +1,17 @@
+import { Card } from "../../components/Card";
 import { services } from "../../mocks/services";
-import { Card } from "../Card";
 
 export function WhatIDo() {
   return (
-    <div className="flex flex-col justify-center items-center text-white py-12">
+    <div className="flex flex-col justify-center items-center text-white py-12 p-8">
       <span className="font-poppins antialiased font-extrabold text-4xl tracking-tighter">
         Meus serviços
       </span>
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FC3F7] to-[#FFFFFF] antialiased font-poppins font-semibold text-lg mt-2">
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FC3F7] to-[#FFFFFF] antialiased font-poppins font-semibold text-lg mt-2 mb-12">
         O que eu faço?
       </span>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-6 max-w-5xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 max-w-5xl">
         {services?.map((service, index) => (
           <Card
             key={index}

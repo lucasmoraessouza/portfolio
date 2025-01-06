@@ -66,7 +66,7 @@ export function GetInTouch() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center w-full max-w-2xl">
+    <div className="flex flex-col justify-center items-center w-full max-w-2xl p-8">
       <span className="font-poppins antialiased font-extrabold text-4xl tracking-tighter">
         Entre em contato
       </span>

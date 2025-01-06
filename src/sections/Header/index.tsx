@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HeaderIcon from "../../assets/icons/header-icon";
-import { Button } from "../Button";
+import { Button } from "../../components/Button";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ export function Header() {
   };
 
   return (
-    <div className="relative flex flex-row justify-between items-center p-4 py-2">
+    <div className="relative flex flex-row justify-between items-center p-8 py-10">
       <span className="font-oleo antialiased text-2xl font-medium">
         {"< Lucas />"}
       </span>

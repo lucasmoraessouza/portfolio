@@ -1,4 +1,3 @@
-import EmailIcon from "../../assets/icons/email-icon";
 import InstagramIcon from "../../assets/icons/instagram-icon";
 import LinkedinIcon from "../../assets/icons/linkedin-icon";
 

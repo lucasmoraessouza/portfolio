@@ -31,6 +31,9 @@ export function Header() {
         <a href="#what-i-do" className="hover:text-lightPrimary">
           Serviços
         </a>
+        <a href="#my-stacks" className="hover:text-lightPrimary">
+          Técnologias
+        </a>
       </div>
       <div className="hidden md:flex">
         <Button text="Contato" square />
@@ -59,6 +62,15 @@ export function Header() {
                 Serviços
               </a>
             </li>
+            <li onClick={toggleMenu}>
+              <a
+                href="#my-stacks"
+                className="block px-4 py-2 hover:bg-[#2A2A2A]"
+              >
+                Técnologias
+              </a>
+            </li>
+
             <li onClick={toggleMenu}>
               <a
                 href="#get-in-touch"

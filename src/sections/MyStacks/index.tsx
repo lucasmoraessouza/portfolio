@@ -5,7 +5,7 @@ export function MyStacks() {
   return (
     <div className="flex flex-col justify-center items-center bg-[#222222] p-8">
       <span className="font-poppins antialiased font-extrabold text-4xl tracking-tighter">
-        Técnologias
+        Tecnologias
       </span>
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4FC3F7] to-[#FFFFFF] antialiased font-poppins font-semibold text-base">
         Meus conhecimentos

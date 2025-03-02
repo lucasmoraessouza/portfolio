@@ -32,11 +32,16 @@ export function Header() {
           Serviços
         </a>
         <a href="#my-stacks" className="hover:text-lightPrimary">
-          Técnologias
+          Tecnologias
+        </a>
+        <a href="#my-career" className="hover:text-lightPrimary">
+          Carreira
         </a>
       </div>
       <div className="hidden md:flex">
-        <Button text="Contato" square />
+        <a href="#get-in-touch">
+          <Button text="Contato" square />
+        </a>
       </div>
       {menuOpen && (
         <div className="absolute top-full right-0 mt-2 w-48 bg-menu border-[#484E53] border shadow-lg rounded-lg md:hidden">
@@ -67,7 +72,15 @@ export function Header() {
                 href="#my-stacks"
                 className="block px-4 py-2 hover:bg-[#2A2A2A]"
               >
-                Técnologias
+                Tecnologias
+              </a>
+            </li>
+            <li onClick={toggleMenu}>
+              <a
+                href="#my-career"
+                className="block px-4 py-2 hover:bg-[#2A2A2A]"
+              >
+                Carreira
               </a>
             </li>
 

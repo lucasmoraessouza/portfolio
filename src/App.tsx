@@ -3,13 +3,14 @@ import { Footer } from "./sections/Footer";
 import { GetInTouch } from "./sections/GetInTouch";
 import { Header } from "./sections/Header";
 import { Main } from "./sections/Main";
+import { MyCareer } from "./sections/MyCareer";
 import { MyStacks } from "./sections/MyStacks";
 import { WhatIDo } from "./sections/WhatIDo";
 
 export default function App() {
   return (
     <>
-      <div >
+      <div>
         <Header />
         <div className="flex flex-col gap-24 items-center">
           <section id="main" className="w-full">
@@ -23,6 +24,10 @@ export default function App() {
           </section>
           <section id="my-stacks" className="w-full">
             <MyStacks />
+          </section>
+        
+          <section id="my-career" className="w-full flex justify-center">
+            <MyCareer />
           </section>
           <section id="get-in-touch" className="w-full flex justify-center">
             <GetInTouch />

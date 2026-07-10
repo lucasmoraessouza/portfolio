@@ -1,0 +1,40 @@
+---
+import type { Content } from '../data/types';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="sobre" class="scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-24 md:py-32">
+    <p class="section-label reveal">{t.about.label}</p>
+    <p class="reveal mt-6 max-w-4xl font-grotesk text-2xl leading-snug font-bold text-zinc-100 sm:text-4xl" style="--rd:0.1s">
+      {t.about.statement}
+    </p>
+
+    <div class="mt-12 grid gap-12 md:grid-cols-[1.3fr_0.7fr]">
+      <div class="reveal space-y-5 leading-relaxed text-zinc-400" style="--rd:0.15s">
+        {t.about.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+
+      <div class="flex flex-col gap-4">
+        {
+          t.about.stats.map((stat, i) => {
+            const numeric = /^\d+\+?$/.test(stat.value);
+            return (
+              <div class="card reveal flex items-baseline gap-4" style={`--rd:${0.15 + i * 0.1}s`}>
+                <p class="font-display text-4xl text-volt sm:text-5xl" data-count={numeric ? stat.value : undefined}>
+                  {stat.value}
+                </p>
+                <p class="text-sm text-zinc-400">{stat.label}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>

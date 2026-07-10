@@ -1,0 +1,29 @@
+---
+import type { Content } from '../data/types';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+---
+
+<div class="marquee relative z-20 -rotate-1 overflow-hidden border-y-2 border-zinc-950 bg-volt py-3 shadow-[0_10px_40px_rgba(217,247,50,0.15)]">
+  <div class="marquee-track" aria-hidden="true">
+    {
+      [0, 1].map(() => (
+        <div class="flex shrink-0 items-center">
+          {t.marquee.map((tech) => (
+            <span class="mx-6 flex items-center gap-6 font-display text-lg tracking-wide text-zinc-950 uppercase">
+              {tech}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0l2.8 9.2L24 12l-9.2 2.8L12 24l-2.8-9.2L0 12l9.2-2.8L12 0z" />
+              </svg>
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+  <span class="sr-only">{t.marquee.join(', ')}</span>
+</div>

@@ -1,0 +1,52 @@
+---
+import type { Content } from '../data/types';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="experiencia" class="scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-5 py-24 md:py-32">
+    <p class="section-label reveal">{t.experience.label}</p>
+    <h2 class="mega reveal mt-4" style="--rd:0.08s">{t.experience.title}</h2>
+    <p class="reveal mt-4 text-zinc-400" style="--rd:0.15s">{t.experience.subtitle}</p>
+
+    <div class="mt-14">
+      {
+        t.experience.jobs.map((job, i) => (
+          <article class="group reveal grid gap-4 border-t border-zinc-800/80 py-10 transition-colors duration-300 last:border-b hover:bg-zinc-900/30 md:grid-cols-[100px_1fr] md:gap-10 md:px-4">
+            <p class="font-display text-3xl text-zinc-800 transition-colors duration-300 group-hover:text-volt md:text-4xl">
+              {String(i + 1).padStart(2, '0')}
+            </p>
+            <div>
+              <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                <h3 class="font-grotesk text-xl font-bold text-zinc-100 transition-colors duration-300 group-hover:text-volt sm:text-2xl">
+                  {job.company}
+                </h3>
+                <span class="font-grotesk text-xs font-semibold tracking-[0.2em] text-zinc-500 uppercase">
+                  {job.period}
+                </span>
+              </div>
+              <p class="mt-1 text-sm font-medium text-zinc-400">
+                {job.role} · <span class="text-zinc-500">{job.location}</span>
+              </p>
+              <ul class="mt-5 list-disc space-y-2 pl-5 text-sm leading-relaxed text-zinc-400 marker:text-volt/60">
+                {job.bullets.map((b) => (
+                  <li>{b}</li>
+                ))}
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-2">
+                {job.stack.map((tech) => (
+                  <span class="chip">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

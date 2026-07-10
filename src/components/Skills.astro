@@ -1,0 +1,35 @@
+---
+import type { Content } from '../data/types';
+
+interface Props {
+  t: Content;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="skills" class="scroll-mt-20 border-y border-zinc-900 bg-zinc-900/25">
+  <div class="mx-auto max-w-6xl px-5 py-24 md:py-32">
+    <p class="section-label reveal">{t.skills.label}</p>
+    <h2 class="mega reveal mt-4" style="--rd:0.08s">{t.skills.title}</h2>
+    <p class="reveal mt-4 text-zinc-400" style="--rd:0.15s">{t.skills.subtitle}</p>
+
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        t.skills.groups.map((group, i) => (
+          <div class="card reveal group" style={`--rd:${0.1 + i * 0.08}s`}>
+            <p class="font-display text-5xl text-zinc-800 transition-colors duration-300 group-hover:text-volt/40">
+              {String(i + 1).padStart(2, '0')}
+            </p>
+            <h3 class="mt-3 font-grotesk text-lg font-bold tracking-wide text-zinc-100 uppercase">{group.title}</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span class="chip">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

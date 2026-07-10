@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import ogSrc from '../assets/og.png';
+import type { Content } from '../data/types';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  t: Content;
+  /** Path of this page in the other language, e.g. "/en/" or "/" */
+  altUrl: string;
+  altLang: string;
+  altLabel: string;
+}
+
+const { t, altUrl, altLang, altLabel } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const alternate = new URL(altUrl, Astro.site);
+const ogImage = await getImage({ src: ogSrc, width: 1200, height: 630, fit: 'cover', format: 'jpeg' });
+const ogImageUrl = new URL(ogImage.src, Astro.site);
+---
+
+<!doctype html>
+<html lang={t.htmlLang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={t.htmlLang} href={canonical} />
+    <link rel="alternate" hreflang={altLang} href={alternate} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={t.htmlLang.replace('-', '_')} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+  </head>
+  <body class="bg-zinc-950 font-sans text-zinc-300 antialiased">
+    <div class="intro-curtain" aria-hidden="true"><span>lucas.dev</span></div>
+    <div id="progress" class="fixed inset-x-0 top-0 z-60 h-0.5 origin-left scale-x-0 bg-volt"></div>
+    <div
+      id="spotlight"
+      aria-hidden="true"
+      class="pointer-events-none fixed z-0 hidden h-150 w-150 rounded-full opacity-0 transition-opacity duration-500 md:block"
+      style="background: radial-gradient(circle, rgb(217 247 50 / 0.07) 0%, transparent 65%)"
+    >
+    </div>
+
+    <Nav t={t} altUrl={altUrl} altLabel={altLabel} />
+    <main class="relative z-10">
+      <slot />
+    </main>
+    <Footer t={t} />
+
+    <script>
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Scroll reveal com stagger via --rd
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => io.observe(el));
+
+      // Count-up nos números das estatísticas
+      const counterIo = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            counterIo.unobserve(e.target);
+            const el = e.target as HTMLElement;
+            const raw = el.dataset.count ?? '';
+            const target = parseInt(raw, 10);
+            if (reduced || Number.isNaN(target)) continue;
+            const suffix = raw.replace(String(target), '');
+            const start = performance.now();
+            const dur = 1400;
+            const tick = (now: number) => {
+              const p = Math.min((now - start) / dur, 1);
+              const eased = 1 - Math.pow(1 - p, 3);
+              el.textContent = Math.round(eased * target) + suffix;
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        },
+        { threshold: 0.6 },
+      );
+      document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => counterIo.observe(el));
+
+      // Barra de progresso + parallax do hero
+      const progress = document.getElementById('progress');
+      const heroName = document.getElementById('hero-name');
+      const heroPerson = document.getElementById('hero-person');
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const max = document.documentElement.scrollHeight - innerHeight;
+          if (progress) progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+          if (!reduced && scrollY < innerHeight) {
+            if (heroName) heroName.style.transform = `translateY(${scrollY * 0.32}px)`;
+            if (heroPerson) heroPerson.style.transform = `translateY(${scrollY * 0.14}px)`;
+          }
+          ticking = false;
+        });
+      };
+      addEventListener('scroll', onScroll, { passive: true });
+
+      // Spotlight segue o mouse (desktop)
+      const spot = document.getElementById('spotlight');
+      if (spot && matchMedia('(pointer: fine)').matches && !reduced) {
+        addEventListener('mousemove', (e) => {
+          spot.style.opacity = '1';
+          spot.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+        });
+      }
+    </script>
+  </body>
+</html>
